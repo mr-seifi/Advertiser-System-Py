@@ -2,7 +2,8 @@ class BaseAdvertising:
     """Docstring"""
 
     def __init__(self, clicks=0, views=0):
-        assert(clicks >= 0 and views >= 0), 'Clicks or Views should be positive!'
+        if clicks < 0 or views < 0:
+            raise ValueError('Clicks or Views should be positive!')
         self._clicks = clicks
         self._views = views
 
